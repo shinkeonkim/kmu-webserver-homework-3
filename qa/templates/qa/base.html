@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> QnA Site </title>
+</head>
+
+<body>
+    <h1> <a href="/"> QnA</a></h1>
+    {% if user.is_authenticated %}
+        <form action="{% url 'logout' %}" method="post" style="display: inline;">
+            {% csrf_token %}
+            <button type="submit">Logout</button>
+        </form>
+{#        <p>Logged in as {{ user.username }} | <a href="/logout/">Logout</a></p>#}
+    {% else %}
+        <p><a href="/login/">Login</a></p>
+    {% endif %}
+    <hr>
+    {% block content %}]
+    {% endblock %}
+</body>
+</html>
+
+
+

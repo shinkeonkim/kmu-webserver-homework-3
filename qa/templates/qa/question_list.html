@@ -1,0 +1,18 @@
+{% extends 'qa/base.html' %}
+{% block content %}
+    <h2>
+        All Questions
+    </h2>
+
+    <a href="{% url 'ask_question' %}"> Ask a question </a>
+
+    <ul>
+        {% for question in questions %}
+            <li>
+                <a href="{% url 'question_detail' question.pk %}">{{ question.title }}</a> - {{ question.author.username }} ({{ question.created_at|date:"Y-m-d H:i" }})
+            </li>
+        {% empty %}
+            <li> No Questions yet. </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
