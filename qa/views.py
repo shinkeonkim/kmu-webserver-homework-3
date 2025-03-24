@@ -6,7 +6,7 @@ from qa.models import Question, Answer
 
 
 def question_list(request):
-    questions = Question.objects.all()
+    questions = Question.objects.order_by('-created_at')
     return render(request, 'qa/question_list.html', {'questions': questions})
 
 def question_detail(request, pk):
