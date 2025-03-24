@@ -1,11 +1,16 @@
-{% extends 'qa/base.html' %}
-{% block content %}
-<h2> Ask a New Question </h2>
-<form method="post">
+{% extends 'qa/base.html' %} {% block content %}
+<h2>Ask a New Question</h2>
+<form method="post" class="mt-4">
     {% csrf_token %}
-    <input type="text" name="title" placeholder="Title" size="50"><br><br>
-    <textarea name="content" placeholder="Your question here..." rows="6" cols="60"></textarea><br>
-    <button type="submit">Post Question</button>
+    <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input type="text" name="title" id="title" class="form-control" placeh older="Enter your question title" />
+    </div>
+    <div class="mb-3">
+        <label for="content" class="form-label">Content</label>
+        <textarea name="content" id="content" class="form-control" rows="6"
+            placeholder="Describe your question in detail..."></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Post Question</button>
 </form>
-
 {% endblock %}
